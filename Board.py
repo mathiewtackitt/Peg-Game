@@ -34,10 +34,12 @@ class Board:
     def getReward(self):
         actions = self.getLegalActions()
         if (len(actions) != 0): return 0.0
+        if self.won():  return len(self.tiles)
+        
         num_pegs = 0
         for tile in self.tiles:
             if tile.hasPeg():   num_pegs += 1
-        return (len(self.tiles) - num_pegs) / num_pegs - 1
+        return -num_pegs
 
     def getLegalActions(self):
         actions = []
