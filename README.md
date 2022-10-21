@@ -10,4 +10,5 @@ In the initial state, per Cracker Barrel rules, the empty hole always starts at 
 To run the program with its default values, run python Main.py
 You can see which variables you can alter using python Main.py --help
 For instance, if you wanted to change the epsilon value of the agent and the number of rows on the board, you would run
+
 python Main.py -e float -r int
