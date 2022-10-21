@@ -12,3 +12,6 @@ You can see which variables you can alter using python Main.py --help
 For instance, if you wanted to change the epsilon value of the agent and the number of rows on the board, you would run
 
 python Main.py -e float -r int
+
+
+This program took me one week to write. Most of the code for displaying the GUI was taken from the PacMan projects from my Intro to AI course with an added method 'hexagon()' to display the hexagons on the GUI. The code for the AI, and everything about the Board was written by myself.
