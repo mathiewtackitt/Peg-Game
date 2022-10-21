@@ -9,8 +9,8 @@ import argparse
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Train AI to solve Peg Game")
     parser.add_argument('-e', '-epsilon', default=0.5, type=float, help="Epsilon value for training agent. [0, 1). Smaller value means less random. (Default: %(default)s)")
-    parser.add_argument('-a', '-alpha', default=0.5, type=float, help="Alpha value for training agent. (0, 1). Smaller value means slower learning. (Default: %(default)s)")
-    parser.add_argument('-d', '-discount', default=0.5, type=float, help="Discount value for training agent. (0, 1). Smaller value means slower learning. (Default: %(default)s)")
+    parser.add_argument('-a', '-alpha', default=0.75, type=float, help="Alpha value for training agent. (0, 1). Smaller value means slower learning. (Default: %(default)s)")
+    parser.add_argument('-d', '-discount', default=0.75, type=float, help="Discount value for training agent. (0, 1). Smaller value means slower learning. (Default: %(default)s)")
     parser.add_argument('-t', '-training', default=2000, type=int, help="Number of training episodes. (Default: %(default)s)")
     parser.add_argument('-r', '-rows', default=5, type=int, help="Number of rows on board. (Default: %(default)s)")
     parser.add_argument('-s', '-training_speed', default=0.001, type=float, help="Speed of training episodes. (0, inf). Smaller value means faster training. (Default: %(default)s)")
