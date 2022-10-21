@@ -83,23 +83,7 @@ class Board:
             game.refresh(secs)
         return self
 
-    def simulate_move(self, tile, direction):
-        new_board = self.copy()
-        i = -1
-        for t in range(len(self.tiles)):
-            if self.tiles[t] == tile:
-                i = t
-                break
-        
-        tile = new_board.tiles[t]
-        tile.pegged = False
-        tile.directions[direction.value].pegged = False
-        tile.directions[direction.value].directions[direction.value].pegged = True
-
-        return new_board
-
     def connectAll(self):
-        # print(len(self.tiles))
         K = 1
         num_before = 0
         while num_before < len(self.tiles):

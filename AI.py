@@ -19,7 +19,6 @@ class AI:
     
     def computeValueFromQValues(self, board):
         q_values = [self.getQValue(board, action) for action in board.getLegalActions()]
-        # print(q_values)
         if len(q_values) == 0:  return 0.0
         return max(q_values)
 
@@ -33,7 +32,6 @@ class AI:
         if len(actions) == 0:   return None
         if (util.flipCoin(self.epsilon)):   return random.choice(actions)
         else:   return self.getPolicy(board)
-        # return self.getPolicy(board)
 
     def update(self, board, action, nextState, reward):
         curr_q = self.getQValue(board, action)
