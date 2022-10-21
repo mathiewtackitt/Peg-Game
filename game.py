@@ -101,7 +101,7 @@ def end_graphics():
     global _root_window, _canvas, _mouse_enabled
     try:
         try:
-            sleep(0.1)
+            sleep(0.01)
             if _root_window != None:
                 _root_window.destroy()
         except SystemExit as e:
