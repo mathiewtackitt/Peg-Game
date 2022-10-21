@@ -19,6 +19,7 @@ class AI:
     
     def computeValueFromQValues(self, board):
         q_values = [self.getQValue(board, action) for action in board.getLegalActions()]
+        # print(q_values)
         if len(q_values) == 0:  return 0.0
         return max(q_values)
 

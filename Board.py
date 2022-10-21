@@ -32,11 +32,13 @@ class Board:
         game.sleep(1)
     
     def getReward(self):
+        actions = self.getLegalActions()
+        if (len(actions) != 0): return 0.0
         max_reward = 2 ** (len(self.tiles) - 1)
         num_pegs = 0
         for tile in self.tiles:
             if tile.hasPeg():   num_pegs += 1
-        return max_reward / (2 ** num_pegs)
+        return max_reward / (2 ** num_pegs) / num_pegs
 
     def getLegalActions(self):
         actions = []
@@ -75,9 +77,10 @@ class Board:
         tile.directions[direction.value].pegged = False
         tile.directions[direction.value].directions[direction.value].pegged = True
 
-        game.clear_screen()
-        self.drawBoard()
-        game.refresh(secs)
+        if game._canvas is not None:
+            game.clear_screen()
+            self.drawBoard()
+            game.refresh(secs)
         return self
 
     def simulate_move(self, tile, direction):

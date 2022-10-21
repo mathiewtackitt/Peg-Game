@@ -42,18 +42,21 @@ if __name__ == '__main__':
 
     for n in range(TOTAL):
         board = Board(NUM_ROWS)
-        board.display()
-        action = agent.getAction(board)
         ## After training, take policy route.
-        if n >= TRAINING:   agent.epsilon = 0
+        if n >= TRAINING:   
+            board.display()
+            agent.epsilon = 0
+        action = agent.getAction(board)
         while action != None:
             tile_num, direction = action
             orig_board = board.copy()
             new_board = orig_board.move(tile_num, direction, TRAINING_SPEED if n < TRAINING else TESTING_SPEED)
+            # print(new_board.getReward())
             agent.update(board, action, new_board, new_board.getReward())
             board.move(tile_num, direction, TRAINING_SPEED if n < TRAINING else TESTING_SPEED)
             action = agent.getAction(board)
         ## If board has one peg remaining, print layout and which iteration it solved on
+        print(n, " training episodes completed. Score this episode: ", board.getReward())
         if board.won():
             print(n, board.getReward(), board.toString())
         game.end_graphics()
