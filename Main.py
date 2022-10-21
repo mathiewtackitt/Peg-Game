@@ -3,7 +3,6 @@ import game
 import math
 from AI import AI
 from Directions import Directions
-from Test import Test
 import util
 import argparse
 
